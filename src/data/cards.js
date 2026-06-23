@@ -18,10 +18,9 @@ export const stufen = [
 ];
 
 function image(filename) {
-return encodeURI(
-'https://raw.githubusercontent.com/ingerfeldundlaube/KI-Kompetenzen/main/' +
-filename,
-);
+  return encodeURI(
+    import.meta.env.BASE_URL + 'cards/' + filename,
+  );
 }
 
 const cardData = [
