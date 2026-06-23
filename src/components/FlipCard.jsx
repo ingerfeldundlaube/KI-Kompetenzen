@@ -78,7 +78,6 @@ onClick={() => setFlipped(!flipped)}
     />
   </div>
 </article>
-```
 
 );
 }
