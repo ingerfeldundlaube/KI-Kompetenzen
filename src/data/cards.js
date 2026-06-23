@@ -24,7 +24,6 @@ titel: 'Suchen und Filtern',
 kompetenzbereich: 'Suchen, Verarbeiten und Aufbewahren',
 kompetenzbereichNummer: '1',
 
-```
 kurzbeschreibung:
   'Schülerinnen und Schüler klären ihren Informationsbedarf, entwickeln und verfeinern Suchstrategien und nutzen geeignete Quellen und KI-Anwendungen, um relevante Informationen zu finden.',
 
@@ -160,7 +159,6 @@ naechsteSchritte: [
 notizen: '',
 vereinbarungen: '',
 selectedLevel: null,
-```
 
 },
 
@@ -170,7 +168,6 @@ titel: 'Auswerten und Bewerten',
 kompetenzbereich: 'Suchen, Verarbeiten und Aufbewahren',
 kompetenzbereichNummer: '1',
 
-```
 kurzbeschreibung:
   'Informationen und Daten analysieren, interpretieren und kritisch bewerten, einschließlich der reflektierten Einordnung KI-generierter Ergebnisse sowie möglicher Verzerrungen. Informationsquellen auch im Abgleich mit Primärquellen analysieren und kritisch bewerten.',
 
@@ -312,7 +309,6 @@ naechsteSchritte: [
 notizen: '',
 vereinbarungen: '',
 selectedLevel: null,
-```
 
 },
 
@@ -322,7 +318,6 @@ titel: 'Speichern und Abrufen',
 kompetenzbereich: 'Suchen, Verarbeiten und Aufbewahren',
 kompetenzbereichNummer: '1',
 
-```
 kurzbeschreibung:
   'Informationen und Daten sicher und ethisch verantwortet speichern, wiederfinden und von verschiedenen Orten abrufen, Informationen und Daten zusammenfassen, organisieren und strukturiert aufbewahren sowie Versionsverwaltungspraxis beherrschen.',
 
@@ -464,7 +459,6 @@ naechsteSchritte: [
 notizen: '',
 vereinbarungen: '',
 selectedLevel: null,
-```
 
 },
 ];
