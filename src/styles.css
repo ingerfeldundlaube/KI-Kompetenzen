@@ -427,3 +427,44 @@ padding: 0;
 box-shadow: none;
 }
 }
+.perspective-tabs {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 10px;
+margin: 14px 0;
+padding: 0;
+background: transparent;
+border: 0;
+}
+
+.perspective-tabs button {
+min-height: 58px;
+padding: 10px 12px;
+color: #244e61;
+background: #edf2f4;
+border: 2px solid transparent;
+border-radius: 10px;
+}
+
+.perspective-tabs button:hover {
+color: #173f53;
+background: #e1ecef;
+}
+
+.perspective-tabs button.active {
+color: white;
+background: #17617e;
+border-color: #17617e;
+box-shadow: 0 4px 12px rgba(23, 97, 126, 0.2);
+}
+
+.perspective-panel {
+margin-top: 14px;
+padding: 20px 24px;
+}
+
+@media (max-width: 850px) {
+.perspective-tabs {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
