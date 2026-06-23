@@ -17,14 +17,11 @@ export const stufen = [
 'Vertieft',
 ];
 
-const images = import.meta.glob('../../*.png', {
-eager: true,
-query: '?url',
-import: 'default',
-});
-
 function image(filename) {
-return images['../../' + filename];
+return encodeURI(
+'https://raw.githubusercontent.com/ingerfeldundlaube/KI-Kompetenzen/main/' +
+filename,
+);
 }
 
 const cardData = [
