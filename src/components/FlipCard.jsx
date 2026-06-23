@@ -3,6 +3,7 @@ import { LEVELS } from '../data/cards.js';
 
 export default function FlipCard({ card, onUpdate = () => {} }) {
 const [flipped, setFlipped] = useState(false);
+const [activePerspective, setActivePerspective] = useState('Lernende');
 
 if (!card) {
 return <p>Keine Karte vorhanden.</p>;
