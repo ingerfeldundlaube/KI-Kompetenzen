@@ -26,7 +26,7 @@ padding: 28px;
 }
 
 .hero {
-padding: 34px 38px;
+  padding: 22px 30px;
 color: white;
 background: linear-gradient(135deg, #153d52, #26708c);
 border-radius: 22px;
@@ -58,7 +58,7 @@ opacity: 0.82;
 display: grid;
 grid-template-columns: 330px minmax(0, 1fr);
 gap: 26px;
-margin-top: 26px;
+margin-top: 18px;
 }
 
 .overview,
