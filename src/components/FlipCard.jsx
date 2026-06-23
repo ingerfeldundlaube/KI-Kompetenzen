@@ -3,9 +3,6 @@ import { LEVELS } from '../data/cards.js';
 
 export default function FlipCard({ card, onUpdate = () => {} }) {
 const [flipped, setFlipped] = useState(false);
-const [activePerspective, setActivePerspective] = useState('Lernende');
-const [activeBackPerspective, setActiveBackPerspective] = useState('Lernende');
-
 
 if (!card) {
 return <p>Keine Karte vorhanden.</p>;
@@ -18,173 +15,70 @@ onClick={() => setFlipped(!flipped)}
 >
 {flipped ? 'Vorderseite anzeigen' : 'Karte wenden'} </button>
 
-  {!flipped ? (
-    <div className="face front">
-      <p>Reflexionskarte {card.id}</p>
-      <h2>{card.titel}</h2>
-      <p>{card.kompetenzbereich}</p>
-
-      <h3>Kurzbeschreibung</h3>
-      <p>{card.kurzbeschreibung}</p>
-
-      <h3>Warum ist das wichtig?</h3>
-      <p>{card.warumWichtig}</p>
-
-      <h3>Reflexionsfrage</h3>
-      <p>{card.reflexionsfrage}</p>
-
-<h3>Entwicklungsraster</h3>
-
-<div className="perspective-tabs">
-  {Object.keys(card.entwicklungsraster || {}).map(
-    (perspektive) => (
-      <button
-        type="button"
-        key={perspektive}
-        className={
-          activePerspective === perspektive ? 'active' : ''
-        }
-        onClick={() => setActivePerspective(perspektive)}
-      >
-        {perspektive}
-      </button>
-    ),
-  )}
-</div>
-
-<section className="perspective-panel">
-  <h4>{activePerspective}</h4>
-
-{Object.entries(
-(card.entwicklungsraster || {})[activePerspective] || {},
-).map(([stufe, beschreibung]) => ( <div key={stufe}> <strong>{stufe}</strong> <p>{beschreibung}</p> </div>
-))}
-
-</section>
-
-
-      <h3>Wo stehen wir?</h3>
-      <p>Bitte eine Stufe auswählen.</p>
-
-      <div>
-        {LEVELS.map((level) => (
-          <button
-            type="button"
-            key={level.key}
-            onClick={() =>
-              onUpdate({ selectedLevel: level.value })
-            }
-            aria-pressed={
-              card.selectedLevel === level.value
-            }
-          >
-            {level.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  ) : (
-    <div className="face back">
-      <p>Reflexionskarte {card.id}</p>
-      <h2>Reflexion: {card.titel}</h2>
-
-      <h3>Reflexionsfragen</h3>
-
-<h3>Reflexionsfragen</h3>
-
-<div className="perspective-tabs">
-  {Object.keys(
-    card.reflexionsfragenNachPerspektive || {},
-  ).map((perspektive) => (
-    <button
-      type="button"
-      key={perspektive}
-      className={
-        activeBackPerspective === perspektive
-          ? 'active'
-          : ''
+```
+  <div className="face">
+    <img
+      src={flipped ? card.backImage : card.frontImage}
+      alt={
+        (flipped ? 'Rückseite ' : 'Vorderseite ') +
+        card.id
       }
-      onClick={() =>
-        setActiveBackPerspective(perspektive)
-      }
-    >
-      {perspektive}
-    </button>
-  ))}
-</div>
+      style={{
+        display: 'block',
+        width: '100%',
+        height: 'auto',
+        margin: '18px auto 24px',
+        borderRadius: '14px',
+        boxShadow:
+          '0 6px 18px rgba(35, 63, 77, 0.12)',
+      }}
+    />
 
-<section className="perspective-panel">
-  <h4>{activeBackPerspective}</h4>
-  <ul>
-    {(
-      (card.reflexionsfragenNachPerspektive || {})[
-        activeBackPerspective
-      ] || []
-    ).map((frage) => (
-      <li key={frage}>{frage}</li>
-    ))}
-  </ul>
-</section>
+    <h3>Standortbestimmung</h3>
+    <p>Bitte eine Stufe auswählen.</p>
 
-      <h3>Entwicklungsimpulse</h3>
-      <ul>
-        {(card.entwicklungsimpulse || []).map(
-          (impuls) => (
-            <li key={impuls}>{impuls}</li>
-          ),
-        )}
-      </ul>
-
-      <h3>Mögliche nächste Schritte</h3>
-
-      {(card.naechsteSchritte || []).map((schritt) => (
-        <section
-          key={schritt.bereich + '-' + schritt.text}
+    <div className="level-selector">
+      {LEVELS.map((level) => (
+        <button
+          type="button"
+          key={level.key}
+          className={
+            card.selectedLevel === level.value
+              ? 'selected'
+              : ''
+          }
+          onClick={() =>
+            onUpdate({ selectedLevel: level.value })
+          }
+          aria-pressed={
+            card.selectedLevel === level.value
+          }
         >
-          <h4>{schritt.bereich}</h4>
-          <p>{schritt.text}</p>
-        </section>
+          {level.label}
+        </button>
       ))}
-
-      <h3>Standortbestimmung</h3>
-      <p>Bitte eine Stufe auswählen.</p>
-
-      <div>
-        {LEVELS.map((level) => (
-          <button
-            type="button"
-            key={level.key}
-            onClick={() =>
-              onUpdate({ selectedLevel: level.value })
-            }
-            aria-pressed={
-              card.selectedLevel === level.value
-            }
-          >
-            {level.label}
-          </button>
-        ))}
-      </div>
-
-      <h3>Notizen</h3>
-      <textarea
-        value={card.notizen || ''}
-        onChange={(event) =>
-          onUpdate({ notizen: event.target.value })
-        }
-      />
-
-      <h3>Vereinbarungen</h3>
-      <textarea
-        value={card.vereinbarungen || ''}
-        onChange={(event) =>
-          onUpdate({
-            vereinbarungen: event.target.value,
-          })
-        }
-      />
     </div>
-  )}
+
+    <h3>Notizen</h3>
+    <textarea
+      value={card.notizen || ''}
+      onChange={(event) =>
+        onUpdate({ notizen: event.target.value })
+      }
+    />
+
+    <h3>Vereinbarungen</h3>
+    <textarea
+      value={card.vereinbarungen || ''}
+      onChange={(event) =>
+        onUpdate({
+          vereinbarungen: event.target.value,
+        })
+      }
+    />
+  </div>
 </article>
+```
+
 );
 }
