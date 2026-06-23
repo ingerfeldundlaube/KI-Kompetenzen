@@ -103,7 +103,7 @@ onClick={() => setFlipped(!flipped)}
 
       {(card.naechsteSchritte || []).map((schritt) => (
         <section
-          key={`${schritt.bereich}-${schritt.text}`}
+          key={schritt.bereich + '-' + schritt.text}
         >
           <h4>{schritt.bereich}</h4>
           <p>{schritt.text}</p>
