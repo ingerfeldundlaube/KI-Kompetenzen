@@ -1,4 +1,3 @@
-```jsx
 import { useState } from 'react';
 import { perspektiven, stufen } from '../data/cards.js';
 import LevelSelector from './LevelSelector.jsx';
@@ -32,7 +31,9 @@ export default function FlipCard({ card, onUpdate }) {
         <div className="face front">
           <header className="card-header">
             <div>
-              <p className="card-number">Reflexionskarte {card.id}</p>
+              <p className="card-number">
+                Reflexionskarte {card.id}
+              </p>
               <h2>{card.titel}</h2>
             </div>
 
@@ -41,6 +42,7 @@ export default function FlipCard({ card, onUpdate }) {
 
           {card.kurzbeschreibung && (
             <section className="card-section introduction">
+              <h3>Kurzbeschreibung</h3>
               <p>{card.kurzbeschreibung}</p>
             </section>
           )}
@@ -113,7 +115,9 @@ export default function FlipCard({ card, onUpdate }) {
         <div className="face back">
           <header className="card-header">
             <div>
-              <p className="card-number">Reflexionskarte {card.id}</p>
+              <p className="card-number">
+                Reflexionskarte {card.id}
+              </p>
               <h2>{card.titel}</h2>
             </div>
 
@@ -224,4 +228,3 @@ export default function FlipCard({ card, onUpdate }) {
     </article>
   );
 }
-```
