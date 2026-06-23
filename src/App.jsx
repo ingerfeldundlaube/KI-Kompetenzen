@@ -32,14 +32,16 @@ export default function App() {
     setProgress({});
   }
 
-  return <div className="app-shell">
-    <header className="hero">
-      <p className="eyebrow">Digitale Reflexions-Wendekarten</p>
-      <h1>Kompetenzen in der digitalen Welt im Kontext KI</h1>
-      <p>22 Karten für Standortbestimmung, Notizen, Vereinbarungen und ein datenbasiertes Kompetenzprofil.</p>
-      <ExportButtons cards={cards} onReset={reset} />
-    </header>
-    <main className="layout">
+return <div className="app-shell">
+
+  <header className="hero">
+    <p className="eyebrow">KMK-Unterstützungsangebot: Reflexionsanlässe</p>
+    <h1>Kompetenzen in der digitalen Welt im Kontext Künstlicher Intelligenz</h1>
+    <p>22 Reflexionskarten zur Standortbestimmung, Reflexion, Vereinbarung gemeinsamer Schritte und Profilbildung</p>
+    <ExportButtons cards={cards} onReset={reset} />
+  </header>
+  <main className="layout">
+
       <CardOverview cards={cards} activeId={activeCard.id} onSelect={setActiveId} />
       <section className="workspace">
         <CardDetail card={activeCard} onUpdate={(patch) => updateCard(activeCard.id, patch)} />
