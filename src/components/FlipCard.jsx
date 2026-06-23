@@ -15,7 +15,6 @@ onClick={() => setFlipped(!flipped)}
 >
 {flipped ? 'Vorderseite anzeigen' : 'Karte wenden'} </button>
 
-```
   {!flipped ? (
     <div className="face front">
       <p>Reflexionskarte {card.id}</p>
