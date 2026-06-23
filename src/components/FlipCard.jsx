@@ -4,6 +4,8 @@ import { LEVELS } from '../data/cards.js';
 export default function FlipCard({ card, onUpdate = () => {} }) {
 const [flipped, setFlipped] = useState(false);
 const [activePerspective, setActivePerspective] = useState('Lernende');
+const [activeBackPerspective, setActiveBackPerspective] = useState('Lernende');
+
 
 if (!card) {
 return <p>Keine Karte vorhanden.</p>;
@@ -88,18 +90,41 @@ onClick={() => setFlipped(!flipped)}
 
       <h3>Reflexionsfragen</h3>
 
-      {Object.entries(
-        card.reflexionsfragenNachPerspektive || {},
-      ).map(([perspektive, fragen]) => (
-        <section key={perspektive}>
-          <h4>{perspektive}</h4>
-          <ul>
-            {(fragen || []).map((frage) => (
-              <li key={frage}>{frage}</li>
-            ))}
-          </ul>
-        </section>
-      ))}
+<h3>Reflexionsfragen</h3>
+
+<div className="perspective-tabs">
+  {Object.keys(
+    card.reflexionsfragenNachPerspektive || {},
+  ).map((perspektive) => (
+    <button
+      type="button"
+      key={perspektive}
+      className={
+        activeBackPerspective === perspektive
+          ? 'active'
+          : ''
+      }
+      onClick={() =>
+        setActiveBackPerspective(perspektive)
+      }
+    >
+      {perspektive}
+    </button>
+  ))}
+</div>
+
+<section className="perspective-panel">
+  <h4>{activeBackPerspective}</h4>
+  <ul>
+    {(
+      (card.reflexionsfragenNachPerspektive || {})[
+        activeBackPerspective
+      ] || []
+    ).map((frage) => (
+      <li key={frage}>{frage}</li>
+    ))}
+  </ul>
+</section>
 
       <h3>Entwicklungsimpulse</h3>
       <ul>
