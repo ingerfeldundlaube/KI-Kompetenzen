@@ -31,24 +31,35 @@ onClick={() => setFlipped(!flipped)}
       <h3>Reflexionsfrage</h3>
       <p>{card.reflexionsfrage}</p>
 
-      <h3>Entwicklungsraster</h3>
+<h3>Entwicklungsraster</h3>
 
-      {Object.entries(card.entwicklungsraster || {}).map(
-        ([perspektive, stufen]) => (
-          <section key={perspektive}>
-            <h4>{perspektive}</h4>
+<div className="perspective-tabs">
+  {Object.keys(card.entwicklungsraster || {}).map(
+    (perspektive) => (
+      <button
+        type="button"
+        key={perspektive}
+        className={
+          activePerspective === perspektive ? 'active' : ''
+        }
+        onClick={() => setActivePerspective(perspektive)}
+      >
+        {perspektive}
+      </button>
+    ),
+  )}
+</div>
 
-            {Object.entries(stufen || {}).map(
-              ([stufe, beschreibung]) => (
-                <div key={stufe}>
-                  <strong>{stufe}</strong>
-                  <p>{beschreibung}</p>
-                </div>
-              ),
-            )}
-          </section>
-        ),
-      )}
+<section className="perspective-panel">
+  <h4>{activePerspective}</h4>
+
+{Object.entries(
+(card.entwicklungsraster || {})[activePerspective] || {},
+).map(([stufe, beschreibung]) => ( <div key={stufe}> <strong>{stufe}</strong> <p>{beschreibung}</p> </div>
+))}
+
+</section>
+
 
       <h3>Wo stehen wir?</h3>
       <p>Bitte eine Stufe auswählen.</p>
