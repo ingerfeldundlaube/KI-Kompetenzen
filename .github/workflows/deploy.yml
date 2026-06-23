@@ -31,8 +31,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build -- --base=/KI-Kompetenzen/
+        name: Reflexionskarten kopieren
+        run: |
+          mkdir -p public/cards
+          cp ./*.png public/cards/- 
+      name: Build
+      run: npm run build -- --base=/KI-Kompetenzen/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
