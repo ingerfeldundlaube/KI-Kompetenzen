@@ -29,14 +29,7 @@ normalizedFilename,
 );
 }
 
-
-return encodeURI(
-import.meta.env.BASE_URL +
-'cards/' +
-normalizedFilename,
-);
-}
-
+const cardData = [
 
 const cardData = [
 [
