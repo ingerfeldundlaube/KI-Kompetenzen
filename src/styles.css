@@ -471,3 +471,143 @@ grid-template-columns: repeat(2, minmax(0, 1fr));
 .face .perspective-tabs {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+/* Optimierte linke Kartenübersicht */
+
+.layout {
+grid-template-columns: 400px minmax(0, 1fr);
+gap: 28px;
+}
+
+.overview {
+padding: 22px;
+background: #ffffff;
+border-color: #d4e0e5;
+}
+
+.overview > h2 {
+margin: 0 0 20px;
+color: #173f53;
+font-size: 1.45rem;
+line-height: 1.2;
+}
+
+.area-group {
+margin-bottom: 24px;
+}
+
+.area-group h3 {
+margin: 0 0 10px;
+padding: 9px 11px;
+color: #244e61;
+font-size: 0.87rem;
+line-height: 1.35;
+background: #edf4f6;
+border-left: 4px solid #26708c;
+border-radius: 8px;
+}
+
+.card-link {
+position: relative;
+width: 100%;
+min-height: 62px;
+display: grid;
+grid-template-columns: minmax(0, 1fr) auto;
+align-items: center;
+gap: 12px;
+margin: 7px 0;
+padding: 11px 12px 11px 14px;
+color: #263940;
+font-weight: 600;
+line-height: 1.32;
+background: #f8fafb;
+border: 1px solid #dce6ea;
+border-radius: 11px;
+box-shadow: none;
+transform: none;
+}
+
+.card-link:hover {
+color: #173f53;
+background: #eef5f7;
+border-color: #a9c4cf;
+transform: none;
+}
+
+.card-link.active {
+color: #173f53;
+background: #ffffff;
+border-color: #26708c;
+box-shadow:
+inset 5px 0 0 #26708c,
+0 3px 10px rgba(35, 63, 77, 0.1);
+}
+
+.card-link > span:first-child {
+min-width: 0;
+overflow-wrap: normal;
+word-break: normal;
+hyphens: auto;
+}
+
+.status {
+min-width: 94px;
+max-width: 110px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 5px 9px;
+color: #52646c;
+font-size: 0.68rem;
+font-weight: 700;
+line-height: 1.15;
+text-align: center;
+white-space: normal;
+background: #e8edef;
+border-radius: 999px;
+}
+
+.card-link .level-1 {
+color: #27536b;
+background: #dcebf5 !important;
+}
+
+.card-link .level-2 {
+color: #35613b;
+background: #deefdf !important;
+}
+
+.card-link .level-3 {
+color: #70591d;
+background: #f3e6bd !important;
+}
+
+.overview::-webkit-scrollbar {
+width: 9px;
+}
+
+.overview::-webkit-scrollbar-track {
+background: transparent;
+}
+
+.overview::-webkit-scrollbar-thumb {
+background: #c6d5db;
+border: 2px solid #ffffff;
+border-radius: 999px;
+}
+
+@media (max-width: 1100px) {
+.layout {
+grid-template-columns: 350px minmax(0, 1fr);
+}
+}
+
+@media (max-width: 980px) {
+.layout {
+grid-template-columns: 1fr;
+}
+
+.overview {
+position: static;
+max-height: none;
+}
+}
