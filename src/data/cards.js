@@ -30,6 +30,14 @@ normalizedFilename,
 }
 
 
+return encodeURI(
+import.meta.env.BASE_URL +
+'cards/' +
+normalizedFilename,
+);
+}
+
+
 const cardData = [
 [
 '1.1',
