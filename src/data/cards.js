@@ -18,10 +18,17 @@ export const stufen = [
 ];
 
 function image(filename) {
-  return encodeURI(
-    import.meta.env.BASE_URL + 'cards/' + filename,
-  );
+const normalizedFilename = filename
+.replace(/(\d+)/g, '')
+.replace('Voderseite', 'Vorderseite');
+
+return encodeURI(
+import.meta.env.BASE_URL +
+'cards/' +
+normalizedFilename,
+);
 }
+
 
 const cardData = [
 [
