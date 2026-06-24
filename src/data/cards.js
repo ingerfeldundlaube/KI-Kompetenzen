@@ -30,8 +30,7 @@ normalizedFilename,
 }
 
 const cardData = [
-
-const cardData = [
+  
 [
 '1.1',
 'Suchen und Filtern',
