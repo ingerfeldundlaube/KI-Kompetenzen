@@ -19,7 +19,9 @@ export const stufen = [
 
 function image(filename) {
 const normalizedFilename = filename
-.replace(/(\d+)/g, '')
+.replace('(1)', '')
+.replace('(2)', '')
+.replace('(3)', '')
 .replace('Voderseite', 'Vorderseite');
 
 return encodeURI(
