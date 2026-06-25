@@ -1,14 +1,16 @@
 {
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "build": "npm run optimize:images && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "vite": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "recharts": "latest"
+    "recharts": "latest",
+    "sharp": "latest"
   },
   "devDependencies": {},
   "type": "module"
