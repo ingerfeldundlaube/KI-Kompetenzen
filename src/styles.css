@@ -611,3 +611,31 @@ position: static;
 max-height: none;
 }
 }
+
+.card-image-frame {
+margin: 18px auto 24px;
+}
+
+.card-image {
+display: block;
+width: 100%;
+height: auto;
+border-radius: 14px;
+box-shadow: 0 6px 18px rgba(35, 63, 77, 0.12);
+}
+
+.image-missing {
+display: grid;
+gap: 8px;
+padding: 18px;
+color: #70591d;
+background: #fff8df;
+border: 1px solid #e1c971;
+border-radius: 14px;
+}
+
+.image-missing span {
+font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+font-size: 0.82rem;
+overflow-wrap: anywhere;
+}
